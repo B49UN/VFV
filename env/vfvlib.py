@@ -32,3 +32,5 @@ def ipt_gsheet(num):
     if num == 1:
         print(f'<Information>\n\tTotal {number_of_sts} sentences, {number_of_sts - count} sentences POS-analyzed')
 
+def structure_analysis(sentence):
+    return 300
