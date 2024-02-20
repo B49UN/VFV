@@ -3,7 +3,7 @@ def ipt_gsheet(num):
         connect google sheet and import sentence data
 
         :return:
-        1. number of sentences, number of POS analyzed sentences, etc.
+        1. store every sentence in variable.
         """
 
     import gspread
@@ -22,15 +22,17 @@ def ipt_gsheet(num):
     worksheet = spreadsheet.worksheet('sentences')
     df = pd.DataFrame(worksheet.get_all_records())
 
-    # Check how many sentences are POS-analyzed(menu 1)
+    """
+    # Check how many sentences are analyzed
     count = 0
     number_of_sts = df.shape[0]
     for i in range(number_of_sts):
         if df.iloc[7, 5] == '':
             count += 1
-
+    """
     if num == 1:
-        print(f'<Information>\n\tTotal {number_of_sts} sentences, {number_of_sts - count} sentences POS-analyzed')
+        # print(f'<Information>\n\tTotal {number_of_sts} sentences, {number_of_sts - count} sentences POS-analyzed')
+        return df.iloc[:, 0]
 
 def structure_analysis(sentence):
     return 300
