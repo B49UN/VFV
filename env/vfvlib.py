@@ -33,7 +33,7 @@ def ipt_gsheet(num):
         # print(f'<Information>\n\tTotal {number_of_sts} sentences, {number_of_sts - count} sentences POS-analyzed')
         return df.iloc[:, 0]
 
-def structure_analysis(sentence):
+def structure_analysis_detail(sentence):
     # prepare to use OpenAI API
     from openai import OpenAI
     import os
@@ -49,7 +49,8 @@ def structure_analysis(sentence):
                         "choose the format of your answers. 1. The answers are made up of several lines. 2. The first "
                         "line contains the English sentences to be analyzed in <>. 3. Write a line per commentary for "
                         "one word in the original sentence from the second line. The format is the original words - "
-                        "sentence components - Part of Speech - Korean interpretation. 4. The last line is the Korean "
+                        "sentence components(subject, object, etc.) - Part of Speech - Korean interpretation. 4. The "
+                        "last line is the Korean"
                         "interpretation for the whole sentence."},
             {"role": "user", "content": "Analyze sentence:" + sentence}
         ]
