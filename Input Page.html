@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Synsemanti Reader</title>
+		<meta charset = "utf-8">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+			body {
+				background-color: #E0E7E9
+			}
+			h1 { text-align: center; }
+			h2 { text-align: center; }
+			h3 {
+				border: #354649 2px solid;
+				border-radius: 10px 10px 10px 10px;
+				padding: 5px 5px 5px 5px;
+				margin: 20px 650px 20px 650px;
+				text-align: center;
+				font-family: 'Noto Sans KR', serif;
+			}
+			input {
+				width: 130px;
+				height: 32px;
+				font-size: 15px;
+				border: 0;
+				border-radius: 15px;
+				outline: none;
+				padding-left: 10px;	
+				background-color: #A3C6C4;
+				font-family: 'Noto Sans KR', serif;
+			}
+			.filebox label {
+				width: 130px;
+				height: 32px;
+				font-size: 15px;
+				border: 0;
+				border-radius: 15px;
+				outline: none;
+				padding: .5em .75em;
+				background-color: #A3C6C4;
+				font-family: 'Noto Sans KR', serif;
+			}
+			.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip:rect(0,0,0,0);
+				border: 0;
+				}
+			p { text-align: center;
+				font-family: 'Noto Sans KR', serif;
+			}
+			div { text-align: center;
+				font-family: 'Noto Sans KR', serif;
+			}
+			#회색 { width: 130px;
+				height: 32px;
+				font-size: 15px;
+				border: 0;
+				border-radius: 15px;
+				outline: none;
+				padding-left: 10px;	
+				background-color: #b1c3da;
+				font-family: 'Noto Sans KR', serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Synsemanti reader</h1>
+		<h2>Analyze English Sentences & Paragraphs</h2><hr>
+		<h3>Upload File</h3>
+		<form action = "https://drive.google.com/drive/folders/1Rr5l5cVWAlLblNT8fOH6NAh9yKq03UGm" method = "post" enctype = "multipart/form-data">
+			<div id = "정렬" class = "filebox">
+					<label id = "회색" for = "input-file">업로드</label>
+					<input type = "file" id = "input-file">
+					&nbsp; &nbsp; <input type = "button" id = "회색" value = "이미지 촬영">
+			</div>
+			<p><input type = "submit" value = "파일 등록">
+				&nbsp; &nbsp; <input type = "reset" value = "다시 업로드"></p>
+			<br>
+		</form>
+		<h3>Type</h3>	
+		<form action = "https://drive.google.com/drive/folders/1Rr5l5cVWAlLblNT8fOH6NAh9yKq03UGm" method = "post" enctype = "multipart/form-data"></form>
+			<p><textarea cols = "100" rows = "10"></textarea></p>
+			<br>
+			<p><A href = "Output page.html" target = "blank"><input type = "button" value = "구문 분석 시작"></A></p>
+		</form>
+	</body>
+</html>

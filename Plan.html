@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Synsemanti Reader Plan</title>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<h1>Let's build a website for 'Synsemanti Reader'</h1>
+	<h2>We need these fuctions:</h2>
+	<h3>(Two pages)</h3>
+
+	1. File upload (pdf, jpg, png)<br>
+	2. Save the file to the Database using a web server (<A href = "https://drive.google.com/drive/folders/1Rr5l5cVWAlLblNT8fOH6NAh9yKq03UGm" target = "blank">Database link</A>)<br>
+	3. Bring the analyzed version data of the according uploaded one from the server<br> 
+	4. Display<br>
+
+	<h3>Obstacles:</h3>
+	<ol>
+	<li>2단계는 현재 서버가 없어서 파일 업로드하고 등록 누르면 에러 뜸(서버구축 aws)</li><br>
+	<li>3단계에서</li>
+		<ul>
+		<li>input data와  output data 대응시키는 방법(key 값?)</li>
+		<li>output data는 어떤 형태로 저장될 것인가(MVP 수준에서는 아마 jpg or pdf, 더 역동적인 구문 분석 결과 구현 위해서는 이 부분 조사 필요)</li>
+		<li>output data를 database에서 server를 통해 어떻게 읽어올 것인가(SQL, PHP), 현재는 database data가 아닌 이미지 링크이기 때문에 다운로드 버튼 눌러도 리디렉션될 뿐</li>
+		</ul><br>
+	<li>Database에 저장된 input data를 'pdf reading하여 text로 변환 & API로 분석'한 뒤 산출된 output data 다시 database에 저장하는 내부 과정 필요(nondisplayed)</li><br>
+	<li>MVP Database로 무엇을 사용할 것인가(Google Cloud?, MySQL?)
+</body>
+</html>
