@@ -1,9 +1,11 @@
-def ipt_gsheet(num):
+def ipt_gsheet(num, sht_name='sentences', row=0, col=0, val=''):
     """
         connect google sheet and import sentence data
 
         :return:
         1. store every sentence in variable.
+        2. store selected sheet in variable.
+        3. update value of given sheet.
         """
 
     import gspread
@@ -17,21 +19,24 @@ def ipt_gsheet(num):
         '/Users/bagun/Documents/savvy-folio-413809-90235952e75e.json', scope)
     client = gspread.authorize(creds)
 
-    # Open the spreadsheet and select the worksheet by name
-    spreadsheet = client.open('Raw_Sentences')
-    worksheet = spreadsheet.worksheet('sentences')
-    df = pd.DataFrame(worksheet.get_all_records())
-
-    # Check how many sentences are analyzed
-    # count = 0
-    # number_of_sts = df.shape[0]
-    # for i in range(number_of_sts):
-    #    if df.iloc[7, 5] == '':
-    #        count += 1
-
     if num == 1:
-        # print(f'<Information>\n\tTotal {number_of_sts} sentences, {number_of_sts - count} sentences POS-analyzed')
+        # Open the spreadsheet and select the worksheet by name
+        spreadsheet = client.open('Raw_Sentences')
+        worksheet = spreadsheet.worksheet('sentences')
+        df = pd.DataFrame(worksheet.get_all_records())
         return df.iloc[:, 0]
+
+    elif num == 2:
+        spreadsheet = client.open('Raw_Sentences')
+        worksheet = spreadsheet.worksheet(sht_name)
+        df = pd.DataFrame(worksheet.get_all_records())
+        return df
+
+    elif num == 3:
+        spreadsheet = client.open('Raw_Sentences')
+        worksheet = spreadsheet.worksheet(sht_name)
+        worksheet.update_cell(row, col, val)
+        print(f"<Update>\n\t({row}, {col}) cell of sheet '{sht_name}' has been changed to '{worksheet.cell(row, col).value}'")
 
 
 instruction = "너는 영어를 잘 못하는 한국 학생들을 가르치는 영어 선생님이야. " \
@@ -40,7 +45,7 @@ instruction = "너는 영어를 잘 못하는 한국 학생들을 가르치는 �
               + "2. 두번째 줄부터는 문장 성분(주어, 목적어, 동사 등)별로 한 줄을 작성해. " \
               + "3. 그 순서는 해당 영어 구절 - 문장 성분(주어, 목적어, 동사 등) - 한국어 해석 순이야." \
               + "4. 문장이 몇형식인지(1형식, 2형식, 3형식 등)를 알려줘. 5. 가장 마지막 줄에는 문장 전체의 한국어 해석을 적어줘." \
-              + "6. 만약 문장에 구 또는 절이 있다면 그것을 규칙 2., 3.에 맞게 따로 분석해서 답변 가장 밑에 작성해. "\
+              + "6. 만약 문장에 구 또는 절이 있다면 그것을 규칙 2., 3.에 맞게 따로 분석해서 답변 가장 밑에 작성해. " \
               + "답변은 markdown 형식으로 적어"
 
 
