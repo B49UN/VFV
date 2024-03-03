@@ -2,7 +2,7 @@ import vfvlib
 import json
 
 # list of sentences to be created to jsonl file
-sts = vfvlib.ipt_gsheet(1).iloc[0:5]
+sts = vfvlib.ipt_gsheet(1).iloc[13:21]
 # instruction
 sys_ctnt = vfvlib.instruction
 
@@ -19,15 +19,15 @@ def const_assis_cont(num):
     return txt
 
 
-with open("make_jsonl.jsonl", encoding="utf-8", mode="w") as file:
-    for i in range(len(sts)):
+with open("first_tune_val.jsonl", encoding="utf-8", mode="w") as file:
+    for i in range(13, 21):
         assis_cont = const_assis_cont(i)
         sent_dict = {
             "messages": [
                 {"role": "system",
-                 "content": "to be filled"},
+                 "content": sys_ctnt},
                 {"role": "user",
-                 "content": sts[i]},
+                 "content": "Analyze sentence: " + sts[i]},
                 {"role": "assistant",
                  "content": assis_cont}
             ]

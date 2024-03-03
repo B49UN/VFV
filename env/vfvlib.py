@@ -39,14 +39,28 @@ def ipt_gsheet(num, sht_name='sentences', row=0, col=0, val=''):
         print(f"<Update>\n\t({row}, {col}) cell of sheet '{sht_name}' has been changed to '{worksheet.cell(row, col).value}'")
 
 
-instruction = "너는 영어를 잘 못하는 한국 학생들을 가르치는 영어 선생님이야. " \
-              + "네가 어떻게 답변해야 할지 그 규칙을 알려줄게. " \
-              + "1. 첫번째 줄은 분석 대상인 영어 문장을 <>안에 넣어서 보여줘. 첫번째 줄은 볼드체야." \
-              + "2. 두번째 줄부터는 문장 성분(주어, 목적어, 동사 등)별로 한 줄을 작성해. " \
-              + "3. 그 순서는 해당 영어 구절 - 문장 성분(주어, 목적어, 동사 등) - 한국어 해석 순이야." \
-              + "4. 문장이 몇형식인지(1형식, 2형식, 3형식 등)를 알려줘. 5. 가장 마지막 줄에는 문장 전체의 한국어 해석을 적어줘." \
-              + "6. 만약 문장에 구 또는 절이 있다면 그것을 규칙 2., 3.에 맞게 따로 분석해서 답변 가장 밑에 작성해. " \
-              + "답변은 markdown 형식으로 적어"
+instruction = """
+You are a bot that analyzes sentence components for a given sentence.
+Here are some rules for the analysis.
+1. component mark
+S is for ‘subject’, V is for ‘verb’, O is for ‘object’, C is for ‘complement’, M is for ‘modifier’, IO is for ‘indirect object’, DO is for ‘direct object’, OC is for 'objective complement’, SC is for ‘subjective complement’.
+These are the component marks you should use to display the analysis.
+2. types of sentences
+There are 5 types of sentences according to the combination of components.
+If it's made up of S and V, it's type 1
+If it's made up of S, V, and C, it's type 2
+If it's made up of S, V, and O, it's type 3
+If it consists of S, V, IO, and DO, it's type 4
+If it consists of S, V, O, and OC, it's type 5
+3. tense of sentences
+The tense of sentences consists of present, present progressive, future, future progressive, past, past progressive, present completion, past completion.
+The answer(result of analysis) should be displayed according to the following description.
+You should place each sentence component in different line.
+And right below each sentence component line, you should place the component mark in accordance with the sentence component above.
+If a component is a phrase or a clause, put '(apostrophe) on the upper right side of that component’s component mark.
+After you placed the whole sentence component analysis as described above, place the type of the given sentence in the line below.
+And place the tense of the sentence in the line below the type of the sentence.
+"""
 
 
 def structure_analysis_detail(sentence):
@@ -58,11 +72,11 @@ def structure_analysis_detail(sentence):
     OpenAI.api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI()
     completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="ft:gpt-3.5-turbo-0125:personal:first-tune:8yaInfKN",
         messages=[
             {"role": "system",
              "content": instruction},
-            {"role": "user", "content": "Analyze sentence:" + sentence}
+            {"role": "user", "content": "Analyze sentence: " + sentence}
         ]
     )
     return completion.choices[0].message.content
