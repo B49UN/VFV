@@ -1,4 +1,4 @@
-def ipt_gsheet(num, sht_name='sentences', row=0, col=0, val=''):
+def ipt_gsheet(num, sht_name='sentences', rng='', val=[]):
     """
         connect google sheet and import sentence data
 
@@ -35,8 +35,9 @@ def ipt_gsheet(num, sht_name='sentences', row=0, col=0, val=''):
     elif num == 3:
         spreadsheet = client.open('Raw_Sentences')
         worksheet = spreadsheet.worksheet(sht_name)
-        worksheet.update_cell(row, col, val)
-        print(f"<Update>\n\t({row}, {col}) cell of sheet '{sht_name}' has been changed to '{worksheet.cell(row, col).value}'")
+        worksheet.update(rng, val)
+        # print(f"<Update>\n\t({row}, {col}) cell of sheet '{sht_name}' has been changed to '{worksheet.cell(row,
+        # col).value}'")
 
 
 instruction = """
