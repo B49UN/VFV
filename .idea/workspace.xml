@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a323fb3c-ea8b-4141-bab9-4e9e6f919994" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/env/update_sheet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/eval_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/first_tune_val.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/env/first_tune_val.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/fine_tune.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/fine_tune.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/ipt_gst_ex.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/env/ipt_gst_ex.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/update_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/update_sheet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/vfvlib.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/vfvlib.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +109,9 @@
       <workItem from="1708405240735" duration="1358000" />
       <workItem from="1708412249196" duration="40429000" />
       <workItem from="1709445726976" duration="1529000" />
-      <workItem from="1709448953042" duration="7480000" />
+      <workItem from="1709448953042" duration="8304000" />
+      <workItem from="1709808945929" duration="11694000" />
+      <workItem from="1710148584711" duration="14974000" />
     </task>
     <servers />
   </component>
@@ -117,6 +120,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/VFV$vfvlib.coverage" NAME="vfvlib Coverage Results" MODIFIED="1708414162062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
-    <SUITE FILE_PATH="coverage/VFV$fine_tune.coverage" NAME="fine_tune Coverage Results" MODIFIED="1709474347708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
+    <SUITE FILE_PATH="coverage/VFV$eval_model.coverage" NAME="eval_model Coverage Results" MODIFIED="1710421015277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
+    <SUITE FILE_PATH="coverage/VFV$fine_tune.coverage" NAME="fine_tune Coverage Results" MODIFIED="1710419114675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
   </component>
 </project>
